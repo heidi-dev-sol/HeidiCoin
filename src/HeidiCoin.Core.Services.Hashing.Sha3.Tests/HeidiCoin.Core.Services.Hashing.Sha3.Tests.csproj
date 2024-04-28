@@ -22,6 +22,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\HeidiCoin.Core.Models.Sources\HeidiCoin.Core.Models.Sources.csproj" />
 		<ProjectReference Include="..\HeidiCoin.Core.Services.Hashing.Sha3\HeidiCoin.Core.Services.Hashing.Sha3.csproj" />
 		<ProjectReference Include="..\HeidiCoin.Tests\HeidiCoin.Tests.csproj" />
 	</ItemGroup>

@@ -1,11 +1,13 @@
 ﻿namespace HeidiCoin.Core.Services.Hashing.Sha3.Implementations;
 
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.Intrinsics.Arm;
 using System.Security.Cryptography;
 using HeidiCoin.Core.Models.Contracts;
 using HeidiCoin.Core.Services.Hashing.Contracts;
 using HeidiCoin.Core.Services.Implementations;
 using Microsoft.Extensions.Logging;
+using Org.BouncyCastle.Crypto.Digests;
 
 public class Sha3BlockHashService(ILogger logger) : BaseService(logger), IBlockHashService
 {
@@ -14,12 +16,16 @@ public class Sha3BlockHashService(ILogger logger) : BaseService(logger), IBlockH
         try
         {
             var blockComputableSignature = block.GetComputableSignature();
+            
+            var hashingProvider = new Sha3Digest();
 
-            var hashingProvider = SHA3_512.Create();
+            hashingProvider.BlockUpdate(blockComputableSignature, 0, blockComputableSignature.Length);
 
-            var hash = hashingProvider.ComputeHash(blockComputableSignature);
+            var hashedSignature = new byte[32];
 
-            block.Hash = Convert.ToHexString(hash);
+            hashingProvider.DoFinal(hashedSignature);
+
+            block.Hash = Convert.ToHexString(hashedSignature);
 
             return block;
         }

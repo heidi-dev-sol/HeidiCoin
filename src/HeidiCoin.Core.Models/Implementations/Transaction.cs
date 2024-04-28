@@ -3,7 +3,7 @@
 using System.Text;
 using HeidiCoin.Core.Models.Contracts;
 
-public class Transaction(string sender, string recipient, decimal amount, string? data)
+public class Transaction(string sender, string recipient, decimal amount, string? data = null)
     : ITransaction
 {
     public byte[] GetComputableSignature()
