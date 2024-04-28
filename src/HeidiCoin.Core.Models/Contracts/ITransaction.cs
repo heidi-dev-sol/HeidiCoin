@@ -8,7 +8,7 @@ public interface ITransaction<out TData> : ICanBeHashed
 {
     string Sender { get; }
     string Recipient { get; }
-    decimal Amount { get;  }
-    DateTime Timestamp { get;  }
-    TData Data { get;  }
+    decimal Amount { get; }
+    DateTime Timestamp { get; }
+    TData Data { get; }
 }

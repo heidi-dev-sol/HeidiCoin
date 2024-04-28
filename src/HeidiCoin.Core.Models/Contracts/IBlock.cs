@@ -1,19 +1,13 @@
-﻿using HeidiCoin.Core.Models.References.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace HeidiCoin.Core.Models.Contracts;
 
-namespace HeidiCoin.Core.Models.Contracts
+using HeidiCoin.Core.Models.References.Contracts;
+
+public interface IBlock : ICanBeHashed
 {
-    public interface IBlock: ICanBeHashed
-    {
-        public long Index { get;  }
-        public string PreviousHash { get; }
-        public DateTime Timestamp { get; }
-        public ICollection<ITransaction> Transactions { get; }
-        public string Hash { get; set; }
-        public long Nonce { get; set; }
-    }
+    public long Index { get; }
+    public string PreviousHash { get; }
+    public DateTime Timestamp { get; }
+    public ICollection<ITransaction> Transactions { get; }
+    public string Hash { get; set; }
+    public long Nonce { get; set; }
 }
