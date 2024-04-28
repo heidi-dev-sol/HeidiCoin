@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HeidiCoin.Core.Models.References.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,14 +7,12 @@ using System.Threading.Tasks;
 
 namespace HeidiCoin.Core.Models.Contracts
 {
-    public interface IBlock : IBlock<string> { }
-
-    public interface IBlock<TData>
+    public interface IBlock: ICanBeHashed
     {
-        public long Index { get; set; }
-        public string PreviousHash { get; set; }
-        public DateTime Timestamp { get; set; }
-        public TData Data { get; set; }
+        public long Index { get;  }
+        public string PreviousHash { get; }
+        public DateTime Timestamp { get; }
+        public ICollection<ITransaction> Transactions { get; }
         public string Hash { get; set; }
         public long Nonce { get; set; }
     }

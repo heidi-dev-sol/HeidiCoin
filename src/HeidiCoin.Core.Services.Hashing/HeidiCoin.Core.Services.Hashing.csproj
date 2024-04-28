@@ -7,7 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HeidiCoin.Core.Models.References\HeidiCoin.Core.Models.References.csproj" />
+    <ProjectReference Include="..\HeidiCoin.Core.Models\HeidiCoin.Core.Models.csproj" />
+    <ProjectReference Include="..\HeidiCoin.Core.Services\HeidiCoin.Core.Services.csproj" />
   </ItemGroup>
 
 </Project>

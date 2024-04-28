@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\HeidiCoin.Core.Models.References\HeidiCoin.Core.Models.References.csproj" />
-  </ItemGroup>
-
 </Project>
